@@ -4,5 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/BioJava1.8"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring"/>
+	<classpathentry kind="lib" path="/Users/sebastienbeauquis/Documents/cours/Classification/gitRepo/dataMining/lib/hibernate/postgresql-9.1-901.jdbc4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
