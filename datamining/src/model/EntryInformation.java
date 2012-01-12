@@ -1,7 +1,7 @@
-package src.model;
+package model;
 
 // default package
-// Generated 12 janv. 2012 10:38:09 by Hibernate Tools 3.4.0.CR1
+// Generated 12 janv. 2012 17:41:04 by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "entry_information", schema = "public")
-public class EntryInformation implements java.io.Serializable {
+public class EntryInformation implements java.io.Serializable, ModelInterface {
 
 	private int idEntry;
 	private String entryName;

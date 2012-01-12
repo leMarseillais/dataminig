@@ -1,4 +1,4 @@
-package src.parsing;
+package parsing;
 
 import java.io.BufferedReader;
 import java.io.File;

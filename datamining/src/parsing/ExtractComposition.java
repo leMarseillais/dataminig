@@ -1,4 +1,4 @@
-package src.parsing;
+package parsing;
 
 import org.biojavax.bio.seq.RichSequence;
 

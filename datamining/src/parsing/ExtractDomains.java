@@ -1,4 +1,4 @@
-package src.parsing;
+package parsing;
 
 import java.util.HashSet;
 import java.util.Iterator;
