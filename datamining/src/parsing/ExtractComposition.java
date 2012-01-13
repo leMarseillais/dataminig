@@ -4,6 +4,7 @@ import org.biojavax.bio.seq.RichSequence;
 
 public class ExtractComposition {
 
+	private static int idComposition=0;
 	private RichSequence genBank;
 	private String sequence;
 	private Short a=0;
@@ -30,8 +31,14 @@ public class ExtractComposition {
 	public ExtractComposition(RichSequence sequence) {
 		this.genBank = sequence;
 		extractInfo();
-		System.out.println(this);
+		this.idComposition++;
 	}
+
+	public static int getIdComposition() {
+		return idComposition;
+	}
+
+
 
 	public void extractInfo() {
 		this.sequence = this.genBank.seqString();

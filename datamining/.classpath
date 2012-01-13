@@ -6,5 +6,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring"/>
 	<classpathentry kind="lib" path="/Users/sebastienbeauquis/Documents/cours/Classification/gitRepo/dataMining/lib/hibernate/postgresql-9.1-901.jdbc4.jar"/>
+	<classpathentry kind="lib" path="/Users/sebastienbeauquis/Documents/lib/Java/Jama-1.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

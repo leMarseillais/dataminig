@@ -6,7 +6,8 @@ import java.util.Set;
 import org.biojavax.bio.seq.RichSequence;
 
 public class ExtractGeneralAnnotation {
-
+	
+	private static int idGeneralAnnotation=0;
 	private String biophysicochemicalProperties="";
 	private String pathway = "";
 	private String subscellularLocation = "";
@@ -16,7 +17,7 @@ public class ExtractGeneralAnnotation {
 	public ExtractGeneralAnnotation(RichSequence richSequence) {
 		this.richSequence = richSequence;
 		this.extractInfo();
-		System.out.println(this);
+		this.idGeneralAnnotation++;
 	}
 
 	public void extractInfo() {

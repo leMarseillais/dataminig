@@ -8,20 +8,25 @@ import org.biojavax.bio.seq.RichSequence;
 
 public class ExtractSequenceAnnotation {
 
+	private static int idSequenceAnnotation=0;
 	private Short turn = 0;
 	private Short helix = 0;
-	private Short site = 0;
 	private Short transmembrane = 0;
 	private Short intermembrane = 0;
-	private Short chain = 0;
 	private Short betaStrand = 0;
 	private RichSequence richSequence;
 
 	public ExtractSequenceAnnotation(RichSequence richSequence) {
 		this.richSequence = richSequence;
 		this.extractInfo();
-		System.out.println(this);
+		this.idSequenceAnnotation++;
 	}
+	
+
+	public static int getIdSequenceAnnotation() {
+		return idSequenceAnnotation;
+	}
+
 
 	public void extractInfo() {
 		Set<Feature> features = this.richSequence.getFeatureSet();
@@ -50,8 +55,8 @@ public class ExtractSequenceAnnotation {
 	@Override
 	public String toString() {
 		return "ExtractSequenceAnnotation [turn=" + turn + ", helix=" + helix
-				+ ", site=" + site + ", transmembrane=" + transmembrane
-				+ ", intermembrane=" + intermembrane + ", chain=" + chain
+				+  ", transmembrane=" + transmembrane
+				+ ", intermembrane=" + intermembrane 
 				+ ", betaStrand=" + betaStrand + "]";
 	}
 }

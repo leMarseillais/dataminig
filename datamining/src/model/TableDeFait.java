@@ -1,7 +1,7 @@
 package model;
 
 // default package
-// Generated 12 janv. 2012 17:41:04 by Hibernate Tools 3.4.0.CR1
+// Generated 13 janv. 2012 16:20:29 by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,12 +24,10 @@ import org.hibernate.annotations.Parameter;
 public class TableDeFait implements java.io.Serializable, ModelInterface {
 
 	private int idEntry;
-	private Domain domain;
 	private Composition composition;
 	private EntryInformation entryInformation;
 	private ProteinAttribute proteinAttribute;
 	private SequenceAnnotation sequenceAnnotation;
-	private Function function;
 	private GeneralAnnotation generalAnnotation;
 
 	public TableDeFait() {
@@ -39,17 +37,15 @@ public class TableDeFait implements java.io.Serializable, ModelInterface {
 		this.entryInformation = entryInformation;
 	}
 
-	public TableDeFait(Domain domain, Composition composition,
+	public TableDeFait(Composition composition,
 			EntryInformation entryInformation,
 			ProteinAttribute proteinAttribute,
-			SequenceAnnotation sequenceAnnotation, Function function,
+			SequenceAnnotation sequenceAnnotation,
 			GeneralAnnotation generalAnnotation) {
-		this.domain = domain;
 		this.composition = composition;
 		this.entryInformation = entryInformation;
 		this.proteinAttribute = proteinAttribute;
 		this.sequenceAnnotation = sequenceAnnotation;
-		this.function = function;
 		this.generalAnnotation = generalAnnotation;
 	}
 
@@ -63,16 +59,6 @@ public class TableDeFait implements java.io.Serializable, ModelInterface {
 
 	public void setIdEntry(int idEntry) {
 		this.idEntry = idEntry;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_domain")
-	public Domain getDomain() {
-		return this.domain;
-	}
-
-	public void setDomain(Domain domain) {
-		this.domain = domain;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -113,16 +99,6 @@ public class TableDeFait implements java.io.Serializable, ModelInterface {
 
 	public void setSequenceAnnotation(SequenceAnnotation sequenceAnnotation) {
 		this.sequenceAnnotation = sequenceAnnotation;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_function")
-	public Function getFunction() {
-		return this.function;
-	}
-
-	public void setFunction(Function function) {
-		this.function = function;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)

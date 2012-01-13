@@ -1,7 +1,7 @@
 package model;
 
 // default package
-// Generated 12 janv. 2012 17:41:04 by Hibernate Tools 3.4.0.CR1
+// Generated 13 janv. 2012 16:20:29 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,10 +22,8 @@ public class SequenceAnnotation implements java.io.Serializable, ModelInterface 
 	private int idSeqAnnotation;
 	private Short turn;
 	private Short helix;
-	private Short site;
 	private Short transmembrane;
 	private Short intermembrane;
-	private Short chain;
 	private Short betaStrand;
 	private Set<TableDeFait> tableDeFaits = new HashSet<TableDeFait>(0);
 
@@ -37,15 +35,13 @@ public class SequenceAnnotation implements java.io.Serializable, ModelInterface 
 	}
 
 	public SequenceAnnotation(int idSeqAnnotation, Short turn, Short helix,
-			Short site, Short transmembrane, Short intermembrane, Short chain,
-			Short betaStrand, Set<TableDeFait> tableDeFaits) {
+			Short transmembrane, Short intermembrane, Short betaStrand,
+			Set<TableDeFait> tableDeFaits) {
 		this.idSeqAnnotation = idSeqAnnotation;
 		this.turn = turn;
 		this.helix = helix;
-		this.site = site;
 		this.transmembrane = transmembrane;
 		this.intermembrane = intermembrane;
-		this.chain = chain;
 		this.betaStrand = betaStrand;
 		this.tableDeFaits = tableDeFaits;
 	}
@@ -78,15 +74,6 @@ public class SequenceAnnotation implements java.io.Serializable, ModelInterface 
 		this.helix = helix;
 	}
 
-	@Column(name = "site")
-	public Short getSite() {
-		return this.site;
-	}
-
-	public void setSite(Short site) {
-		this.site = site;
-	}
-
 	@Column(name = "transmembrane")
 	public Short getTransmembrane() {
 		return this.transmembrane;
@@ -103,15 +90,6 @@ public class SequenceAnnotation implements java.io.Serializable, ModelInterface 
 
 	public void setIntermembrane(Short intermembrane) {
 		this.intermembrane = intermembrane;
-	}
-
-	@Column(name = "chain")
-	public Short getChain() {
-		return this.chain;
-	}
-
-	public void setChain(Short chain) {
-		this.chain = chain;
 	}
 
 	@Column(name = "beta_strand")
