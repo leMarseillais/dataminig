@@ -7,9 +7,12 @@ import model.Composition;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
-
+@Service("CompositionService")
+@Transactional
 public class CompositionService implements ServicesInerface<Composition, Integer> {
 
 	@Autowired
