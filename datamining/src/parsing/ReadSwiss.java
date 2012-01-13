@@ -14,12 +14,12 @@ import org.biojavax.bio.seq.RichSequenceIterator;
 
 public class ReadSwiss {
 	public static void main(String[] args) {
-		String filename = "/Users/sebastienbeauquis/Documents/cours/Classification/db_datamining/tests/61212141";
+		String filename = "/Users/sebastienbeauquis/Documents/cours/Classification/gitRepo/dataMining/74737414";
 
 		BufferedReader br = null;
 		try {
 			br = readInputFile(filename);
-			System.out.println(br);
+			//System.out.println(br);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -30,8 +30,13 @@ public class ReadSwiss {
 					.readGenbankProtein(br, namespace);
 			while (richSequenceIterator.hasNext()) {
 				RichSequence sequence = richSequenceIterator.nextRichSequence();
-				ExtractFicheProteine extractFicheProteine=new ExtractFicheProteine(sequence);
-				ExtractComposition extractComposition = new ExtractComposition(sequence);
+				//ExtractEntryInformation EntryInformation=new ExtractEntryInformation(sequence);
+				//ExtractDomains domains = new ExtractDomains(sequence);
+				//ExtractComposition composition =new ExtractComposition(sequence);
+				//ExtractFunction function = new ExtractFunction(sequence);
+				//ExtractGeneralAnnotation generalAnnotation =new ExtractGeneralAnnotation(sequence);
+				//ExtractProteinAttribute proteinAttribute = new ExtractProteinAttribute(sequence);
+				ExtractSequenceAnnotation sequenceAnnotation =new ExtractSequenceAnnotation(sequence);
 			}
 			
 		} catch (NoSuchElementException e) {
