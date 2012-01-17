@@ -1,22 +1,32 @@
 package parsing;
 
+import model.EntryInformation;
+import model.TableDeFait;
+
 import org.biojavax.bio.seq.RichSequence;
 
 
 public class ExtractEntryInformation {
 	
-	private static int idProtein=0;
+	private int idProtein;
 	private String nomProteine;
 	private RichSequence genBank;
+	private EntryInformation entryInformation;
 	
-	public ExtractEntryInformation(RichSequence sequence) {
+	public ExtractEntryInformation(int idProtein,RichSequence sequence,TableDeFait tableDeFait) {
 		this.genBank = sequence;
 		extractInfo();
-		this.idProtein++;
+		this.idProtein=idProtein;
+		this.entryInformation=new EntryInformation(idProtein, nomProteine, tableDeFait);
 	}
 	
-	public static int getIdProtein() {
+	public int getIdProtein() {
 		return idProtein;
+	}
+
+	
+	public EntryInformation getEntryInformation() {
+		return entryInformation;
 	}
 
 	public void extractInfo(){

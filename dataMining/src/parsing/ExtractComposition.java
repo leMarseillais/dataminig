@@ -1,44 +1,59 @@
 package parsing;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import model.Composition;
+import model.TableDeFait;
+
 import org.biojavax.bio.seq.RichSequence;
 
 public class ExtractComposition {
 
-	private static int idComposition=0;
+	private Composition composition;
+	private int idComposition=0;
 	private RichSequence genBank;
 	private String sequence;
-	private Short a=0;
-	private Short c=0;
-	private Short d=0;
-	private Short e=0;
-	private Short f=0;
-	private Short g=0;
-	private Short h=0;
-	private Short i=0;
-	private Short k=0;
-	private Short l=0;
-	private Short m=0;
-	private Short n=0;
-	private Short p=0;
-	private Short q=0;
-	private Short r=0;
-	private Short s=0;
-	private Short t=0;
-	private Short v=0;
-	private Short w=0;
-	private Short y=0;
+	private Integer a=0;
+	private Integer c=0;
+	private Integer d=0;
+	private Integer e=0;
+	private Integer f=0;
+	private Integer g=0;
+	private Integer h=0;
+	private Integer i=0;
+	private Integer k=0;
+	private Integer l=0;
+	private Integer m=0;
+	private Integer n=0;
+	private Integer p=0;
+	private Integer q=0;
+	private Integer r=0;
+	private Integer s=0;
+	private Integer t=0;
+	private Integer v=0;
+	private Integer w=0;
+	private Integer y=0;
+	private Set<TableDeFait> tableDeFaits= new HashSet<TableDeFait>();
 
-	public ExtractComposition(RichSequence sequence) {
+	public ExtractComposition(int count, RichSequence sequence, TableDeFait tableDeFait) {
 		this.genBank = sequence;
 		extractInfo();
-		this.idComposition++;
+		this.idComposition=count;
+		tableDeFaits.add(tableDeFait);
+		this.composition=new Composition(idComposition, a, c, d, e, f, g, h, i, k, l, m, n, p, q, r, s, t, v, w, y, tableDeFaits);
+		System.out.println("idComposition = "+this.idComposition);
 	}
 
-	public static int getIdComposition() {
+	public int getIdComposition() {
 		return idComposition;
 	}
 
+	
 
+	public Composition getComposition() {
+		return composition;
+	}
 
 	public void extractInfo() {
 		this.sequence = this.genBank.seqString();
@@ -99,24 +114,24 @@ public class ExtractComposition {
 				this.y++;
 			}
 		}
-		this.a = (short) ((this.a* 100) / this.sequence.length());
-		this.c = (short) ((this.c* 100) / this.sequence.length());
-		this.d = (short) ((this.d* 100) / this.sequence.length());
-		this.e = (short) ((this.e* 100) / this.sequence.length());
-		this.f = (short) ((this.f* 100) / this.sequence.length());
-		this.g = (short) ((this.g* 100) / this.sequence.length());
-		this.i = (short) ((this.i* 100) / this.sequence.length());
-		this.k = (short) ((this.k* 100) / this.sequence.length());
-		this.l = (short) ((this.l* 100) / this.sequence.length());
-		this.m = (short) ((this.m* 100)/ this.sequence.length());
-		this.p = (short) ((this.p* 100) / this.sequence.length());
-		this.q = (short) ((this.q* 100) / this.sequence.length());
-		this.r = (short) ((this.r* 100) / this.sequence.length());
-		this.s = (short) ((this.s* 100) / this.sequence.length());
-		this.t = (short) ((this.t* 100) / this.sequence.length());
-		this.v = (short) ((this.v* 100) / this.sequence.length());
-		this.w = (short) ((this.w* 100) / this.sequence.length());
-		this.y = (short) ((this.y* 100) / this.sequence.length());
+		this.a = (Integer) ((this.a* 100) / this.sequence.length());
+		this.c = (Integer) ((this.c* 100) / this.sequence.length());
+		this.d = (Integer) ((this.d* 100) / this.sequence.length());
+		this.e = (Integer) ((this.e* 100) / this.sequence.length());
+		this.f = (Integer) ((this.f* 100) / this.sequence.length());
+		this.g = (Integer) ((this.g* 100) / this.sequence.length());
+		this.i = (Integer) ((this.i* 100) / this.sequence.length());
+		this.k = (Integer) ((this.k* 100) / this.sequence.length());
+		this.l = (Integer) ((this.l* 100) / this.sequence.length());
+		this.m = (Integer) ((this.m* 100)/ this.sequence.length());
+		this.p = (Integer) ((this.p* 100) / this.sequence.length());
+		this.q = (Integer) ((this.q* 100) / this.sequence.length());
+		this.r = (Integer) ((this.r* 100) / this.sequence.length());
+		this.s = (Integer) ((this.s* 100) / this.sequence.length());
+		this.t = (Integer) ((this.t* 100) / this.sequence.length());
+		this.v = (Integer) ((this.v* 100) / this.sequence.length());
+		this.w = (Integer) ((this.w* 100) / this.sequence.length());
+		this.y = (Integer) ((this.y* 100) / this.sequence.length());
 
 	}
 

@@ -12,26 +12,26 @@ create table Entry_Information(id_entry integer constraint id_entry primary key,
 				Entry_name varchar(50));
 
 create table Composition(id_composition integer constraint id_composition primary key,
-			 A smallint,
-			 C smallint,
-			 D smallint,
-			 E smallint,	 
-			 F smallint,
-			 G smallint,
-			 H smallint,
-			 I smallint,
-			 K smallint,
-			 L smallint,
-			 M smallint,
-			 N smallint,
-			 P smallint,
-			 Q smallint,
-			 R smallint,
-			 S smallint,
-			 T smallint,
-			 V smallint,
-			 W smallint,
-			 Y smallint);
+			 A integer,
+			 C integer,
+			 D integer,
+			 E integer,	 
+			 F integer,
+			 G integer,
+			 H integer,
+			 I integer,
+			 K integer,
+			 L integer,
+			 M integer,
+			 N integer,
+			 P integer,
+			 Q integer,
+			 R integer,
+			 S integer,
+			 T integer,
+			 V integer,
+			 W integer,
+			 Y integer);
 
 create table Protein_attribute(id_attributes integer constraint id_attributes primary key,
 				sequence_lenght integer);
@@ -43,19 +43,18 @@ create table General_annotation(id_general_annotation integer constraint id_gene
 				biophysicochemical_priopoerties varchar(25));
 
 create table Sequence_annotation(id_seq_annotation integer constraint id_seq_annotation primary key,
-				 Turn smallint,
-				 Helix smallint,
-				 Transmembrane smallint,
-				 Intermembrane	smallint,
-				 Beta_strand smallint);
+				 Turn integer,
+				 Helix integer,
+				 Transmembrane integer,
+				 Intermembrane	integer,
+				 Beta_strand integer);
 
 
 create table Table_de_fait(id_seq_annotation integer references Sequence_annotation,
  			  id_general_annotation integer references General_annotation,
 		 	  id_attributes integer references Protein_attribute,
 			  id_composition integer references Composition,
-			  id_entry integer references Entry_Information,
-			  PRIMARY KEY (id_entry));
+			  id_entry integer references Entry_Information primary key);
 
 
 

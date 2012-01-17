@@ -1,29 +1,44 @@
 package parsing;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+
+import model.SequenceAnnotation;
+import model.TableDeFait;
 
 import org.biojava.bio.seq.Feature;
 import org.biojavax.bio.seq.RichSequence;
 
 public class ExtractSequenceAnnotation {
 
-	private static int idSequenceAnnotation=0;
-	private Short turn = 0;
-	private Short helix = 0;
-	private Short transmembrane = 0;
-	private Short intermembrane = 0;
-	private Short betaStrand = 0;
+	private int idSequenceAnnotation=0;
+	private Integer turn = 0;
+	private Integer helix = 0;
+	private Integer transmembrane = 0;
+	private Integer intermembrane = 0;
+	private Integer betaStrand = 0;
 	private RichSequence richSequence;
+	private SequenceAnnotation sequenceAnnotation;
+	private Set<TableDeFait> tableDeFaits= new HashSet<TableDeFait>();
 
-	public ExtractSequenceAnnotation(RichSequence richSequence) {
+	public ExtractSequenceAnnotation(int count, RichSequence richSequence,TableDeFait tableDeFait) {
 		this.richSequence = richSequence;
 		this.extractInfo();
-		this.idSequenceAnnotation++;
+		this.idSequenceAnnotation=count;
+		this.tableDeFaits.add(tableDeFait);
+		this.sequenceAnnotation=new SequenceAnnotation(idSequenceAnnotation, turn, helix, transmembrane, intermembrane, betaStrand, tableDeFaits);
 	}
 	
+	
 
-	public static int getIdSequenceAnnotation() {
+	public SequenceAnnotation getSequenceAnnotation() {
+		return sequenceAnnotation;
+	}
+
+
+
+	public int getIdSequenceAnnotation() {
 		return idSequenceAnnotation;
 	}
 

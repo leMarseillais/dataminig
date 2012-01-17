@@ -1,24 +1,39 @@
 package parsing;
 
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
+
+import model.GeneralAnnotation;
+import model.TableDeFait;
 
 import org.biojavax.bio.seq.RichSequence;
 
 public class ExtractGeneralAnnotation {
 	
-	private static int idGeneralAnnotation=0;
+	private int idGeneralAnnotation=0;
+	private GeneralAnnotation generalAnnotation;
 	private String biophysicochemicalProperties="";
 	private String pathway = "";
 	private String subscellularLocation = "";
 	private String tissueSpecificity = "";
 	private RichSequence richSequence;
+	private Set<TableDeFait> tableDeFaits= new HashSet<TableDeFait>();
 
-	public ExtractGeneralAnnotation(RichSequence richSequence) {
+	public ExtractGeneralAnnotation(int count, RichSequence richSequence,TableDeFait tableDeFait) {
 		this.richSequence = richSequence;
 		this.extractInfo();
-		this.idGeneralAnnotation++;
+		this.idGeneralAnnotation=count;
+		this.tableDeFaits.add(tableDeFait);
+		this.generalAnnotation=new GeneralAnnotation(idGeneralAnnotation, pathway, tissueSpecificity, subscellularLocation, biophysicochemicalProperties, tableDeFaits);
 	}
+	
+	
+
+	public GeneralAnnotation getGeneralAnnotation() {
+		return generalAnnotation;
+	}
+
+
 
 	public void extractInfo() {
 		Set comments = this.richSequence.getComments();
