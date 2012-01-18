@@ -21,7 +21,7 @@ public class ExtractGeneralAnnotation {
 
 	public ExtractGeneralAnnotation(int count, RichSequence richSequence,TableDeFait tableDeFait) {
 		this.richSequence = richSequence;
-		this.extractInfo();
+		//this.extractInfo();
 		this.idGeneralAnnotation=count;
 		this.tableDeFaits.add(tableDeFait);
 		this.generalAnnotation=new GeneralAnnotation(idGeneralAnnotation, pathway, tissueSpecificity, subscellularLocation, biophysicochemicalProperties, tableDeFaits);
@@ -33,7 +33,9 @@ public class ExtractGeneralAnnotation {
 		return generalAnnotation;
 	}
 
-
+	public int getIdGeneralAnnotation() {
+		return idGeneralAnnotation;
+	}
 
 	public void extractInfo() {
 		Set comments = this.richSequence.getComments();

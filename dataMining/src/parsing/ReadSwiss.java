@@ -11,6 +11,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import model.Composition;
+import model.EntryInformation;
+import model.GeneralAnnotation;
+import model.ProteinAttribute;
+import model.SequenceAnnotation;
 import model.TableDeFait;
 
 import org.biojava.bio.BioException;
@@ -72,40 +77,41 @@ public class ReadSwiss {
 							sequence, tableDeFait);
 					tableDeFait.setSequenceAnnotation(sequenceAnnotation.getSequenceAnnotation());
 					
-					//if (entityManager.contains(entryInformation)){
-					//	entityManager.merge(entryInformation);
-					//}else{
+					if (entityManager.find(EntryInformation.class, entryInformation.getIdProtein())!=null){
+						entityManager.merge(entryInformation);
+					}else{
 						entityManager.persist(entryInformation.getEntryInformation());
-					/*}
-					if (entityManager.contains(composition)) {
+					}
+					if (entityManager.find(Composition.class, composition.getIdComposition())!=null) {
 						entityManager.merge(composition);
-					} else {*/
+					} else {
 						entityManager.persist(composition.getComposition());
-					/*}
-					if (entityManager.contains(generalAnnotation)) {
+					}
+					if (entityManager.find(GeneralAnnotation.class, generalAnnotation.getIdGeneralAnnotation())!=null) {
 						entityManager.merge(generalAnnotation);
-					} else {*/
+					} else {
 						entityManager.persist(generalAnnotation.getGeneralAnnotation());	
-					/*}
-					if (entityManager.contains(proteinAttribute)) {
+					}
+					if (entityManager.find(ProteinAttribute.class, proteinAttribute.getIdProteinAttribute())!=null) {
 						entityManager.merge(proteinAttribute);
-					} else {*/
+					} else {
 						entityManager.persist(proteinAttribute.getProteinAttribute());
-					/*}
-					if (entityManager.contains(sequenceAnnotation)) {
+					}
+					if (entityManager.find(SequenceAnnotation.class, sequenceAnnotation.getIdSequenceAnnotation())!=null) {
 						entityManager.merge(sequenceAnnotation);
-					} else {*/
+					} else {
 						entityManager.persist(sequenceAnnotation.getSequenceAnnotation());
-					/*}
-					if (entityManager.contains(tableDeFait)) {
+					}
+					if (entityManager.find(TableDeFait.class, tableDeFait.getIdEntry())!=null) {
 						entityManager.merge(tableDeFait);
-					} else {*/
+					} else {
 						entityManager.persist(tableDeFait);
-					//}
+					}
 					
 				}
 
 			}
+			entityManager.getTransaction().commit();
 			entityManager.close();
 			
 

@@ -28,7 +28,9 @@ public class ExtractProteinAttribute {
 		return proteinAttribute;
 	}
 
-
+	public int getIdProteinAttribute() {
+		return idProteinAttribute;
+	}
 
 	public void extractInfo() {
 		this.sequenceLenght=this.richSequence.seqString().length();
