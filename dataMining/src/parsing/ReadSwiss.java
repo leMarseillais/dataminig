@@ -54,6 +54,7 @@ public class ReadSwiss {
 					ExtractEntryInformation entryInformation = new ExtractEntryInformation( count,
 							sequence, tableDeFait);
 					tableDeFait.setEntryInformation(entryInformation.getEntryInformation());
+					tableDeFait.setIdEntry(entryInformation.getEntryInformation().getIdEntry());
 					
 					ExtractComposition composition = new ExtractComposition( count,
 							sequence, tableDeFait);

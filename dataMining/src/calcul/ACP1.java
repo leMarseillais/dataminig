@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class ACP {
+public class ACP1{
 
 	private static EntityManagerFactory entityManagerFactory;
 	private static EntityManager entityManager;
@@ -18,6 +18,8 @@ public class ACP {
 		entityManager = entityManagerFactory.createEntityManager();
 		
 		entityManager.getTransaction().begin();
+		
+		
 		
 		entityManager.close();
 	}
