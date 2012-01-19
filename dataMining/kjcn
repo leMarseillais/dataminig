@@ -1,0 +1,21 @@
+XY chart 
+An XYDataset can create area, line, and step XY charts.
+ The following example creates an XYDataset from a series of data containing 
+ three XY points. Next, ChartFactory's createAreaXYChart() method creates an area 
+ XY chart. In addition to parameters for title, dataset, and legend, 
+ createAreaXYChart() takes in the labels for the X and Y axes:
+
+
+XYSeries series = new XYSeries("Average Size");
+series.add(20.0, 10.0);
+series.add(40.0, 20.0);
+series.add(70.0, 50.0);
+XYDataset xyDataset = new XYSeriesCollection(series);
+
+JFreeChart chart = ChartFactory.createAreaXYChart
+                     ("Sample XY Chart",  // Title
+                      "Height",           // X-Axis label
+                      "Weight",           // Y-Axis label
+                      xyDataset,          // Dataset
+                      true                // Show legend
+                     );

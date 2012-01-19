@@ -2,7 +2,7 @@ package calcul;
 
 import model.TableDeFait;
 
-public class Protein {
+public class Protein implements Comparable {
 
     private int typeProtein;
     private int numHelix;
@@ -10,11 +10,13 @@ public class Protein {
     private int numTurn;
     private int numTransmembrane;
     private int numIntermembrane;
+    private int hydrophobicity;
     private TableDeFait tableDeFait;
 
-    public Protein(int typeProtein, TableDeFait tableDeFait) {
-	this.typeProtein = typeProtein;
+    public Protein(TableDeFait tableDeFait) {
 	this.tableDeFait = tableDeFait;
+	this.hydrophobicity = this.tableDeFait.getComposition()
+		.getHidrophobocity();
 	this.numHelix = this.tableDeFait.getSequenceAnnotation().getHelix();
 	this.numSheet = this.tableDeFait.getSequenceAnnotation()
 		.getBetaStrand();
@@ -49,4 +51,21 @@ public class Protein {
 	return numIntermembrane;
     }
 
+    public int getHydrophobicity() {
+	return hydrophobicity;
+    }
+
+    public void setTypeProtein(int typeProtein) {
+	this.typeProtein = typeProtein;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+	if (this.hydrophobicity < ((Protein) o).hydrophobicity) {
+	    return -1;
+	} else if (this.hydrophobicity == ((Protein) o).hydrophobicity) {
+	    return 0;
+	}
+	return 1;
+    }
 }
