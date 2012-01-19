@@ -34,5 +34,6 @@ public class ExtractProteinAttribute {
 
 	public void extractInfo() {
 		this.sequenceLenght=this.richSequence.seqString().length();
+		System.out.println(this.richSequence.seqString());
 	}
 }

@@ -269,4 +269,12 @@ public class Composition implements Serializable {
 		this.tableDeFaits = tableDeFaits;
 	}
 	
+	public int getHidrophobocity(){
+	    int hydophobicity=0;
+	    hydophobicity=this.a+this.f+this.g+this.i+this.l+this.m+this.p+this.v+this.w+this.y;
+	    return hydophobicity;
+	}
+	public int getNumAA() {
+	    return (this.a+this.c+this.d+this.e+this.f+this.g+this.h+this.i+this.k+this.l+this.m+this.n+this.p+this.q+this.r+this.s+this.t+this.v+this.w+this.y);
+    }
 }

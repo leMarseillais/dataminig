@@ -57,6 +57,7 @@ public class ExtractComposition {
 
 	public void extractInfo() {
 		this.sequence = this.genBank.seqString();
+		
 		for (int i = 0; i < this.sequence.length(); i++) {
 			char aa = this.sequence.charAt(i);
 			if (aa == 'A') {
@@ -114,7 +115,7 @@ public class ExtractComposition {
 				this.y++;
 			}
 		}
-		this.a = (Integer) ((this.a* 100) / this.sequence.length());
+		/*this.a = (Integer) ((this.a* 100) / this.sequence.length());
 		this.c = (Integer) ((this.c* 100) / this.sequence.length());
 		this.d = (Integer) ((this.d* 100) / this.sequence.length());
 		this.e = (Integer) ((this.e* 100) / this.sequence.length());
@@ -123,7 +124,7 @@ public class ExtractComposition {
 		this.i = (Integer) ((this.i* 100) / this.sequence.length());
 		this.k = (Integer) ((this.k* 100) / this.sequence.length());
 		this.l = (Integer) ((this.l* 100) / this.sequence.length());
-		this.m = (Integer) ((this.m* 100)/ this.sequence.length());
+		this.m = (Integer) ((this.m* 100) / this.sequence.length());
 		this.p = (Integer) ((this.p* 100) / this.sequence.length());
 		this.q = (Integer) ((this.q* 100) / this.sequence.length());
 		this.r = (Integer) ((this.r* 100) / this.sequence.length());
@@ -131,7 +132,7 @@ public class ExtractComposition {
 		this.t = (Integer) ((this.t* 100) / this.sequence.length());
 		this.v = (Integer) ((this.v* 100) / this.sequence.length());
 		this.w = (Integer) ((this.w* 100) / this.sequence.length());
-		this.y = (Integer) ((this.y* 100) / this.sequence.length());
+		this.y = (Integer) ((this.y* 100) / this.sequence.length());*/
 
 	}
 

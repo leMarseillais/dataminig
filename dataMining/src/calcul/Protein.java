@@ -1,8 +1,6 @@
 package calcul;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import model.TableDeFait;
 
 public class Protein {
 
@@ -12,34 +10,43 @@ public class Protein {
     private int numTurn;
     private int numTransmembrane;
     private int numIntermembrane;
-    private EntityManagerFactory entityManagerFactory;
-    private EntityManager entityManager;
+    private TableDeFait tableDeFait;
 
-    public Protein(int id_entry) {
-        entityManagerFactory =
-            Persistence.createEntityManagerFactory("dataMining");
-        entityManager =
-            entityManagerFactory.createEntityManager();
-
-        entityManager.getTransaction().begin();
-        // System.out.println(entityManager.createQuery("SELECT t FROM TableDeFait t;").getResultList());
-        // int idCompo=(Integer)
-        // entityManager.createQuery("SELECT t.composition FROM TableDeFait t WHERE t.idEntry='1';").getSingleResult();
-        int percent =
-            (Integer) entityManager
-                .createQuery(
-                    "SELECT Composition , ProteinAttribute.sequenceLenght"
-                        + " FROM Composition ProteinAttribute"
-                        + " WHERE TableDeFait.idEntry='1' and TableDeFait.composition=Composition.idComposition and TableDeFait.proteinAttribute=ProteinAttribute.idAttributes ;")
-                .getSingleResult();
-        System.out.println(percent);
-        entityManager.close();
-
+    public Protein(int typeProtein, TableDeFait tableDeFait) {
+	this.typeProtein = typeProtein;
+	this.tableDeFait = tableDeFait;
+	this.numHelix = this.tableDeFait.getSequenceAnnotation().getHelix();
+	this.numSheet = this.tableDeFait.getSequenceAnnotation()
+		.getBetaStrand();
+	this.numTurn = this.tableDeFait.getSequenceAnnotation().getTurn();
+	this.numTransmembrane = this.tableDeFait.getSequenceAnnotation()
+		.getTransmembrane();
+	this.numIntermembrane = this.tableDeFait.getSequenceAnnotation()
+		.getIntermembrane();
     }
 
-    public static void main(String[] args) {
-        Protein protein =
-            new Protein(1);
+    public int getTypeProtein() {
+	return typeProtein;
+    }
+
+    public int getNumHelix() {
+	return numHelix;
+    }
+
+    public int getNumSheet() {
+	return numSheet;
+    }
+
+    public int getNumTurn() {
+	return numTurn;
+    }
+
+    public int getNumTransmembrane() {
+	return numTransmembrane;
+    }
+
+    public int getNumIntermembrane() {
+	return numIntermembrane;
     }
 
 }
