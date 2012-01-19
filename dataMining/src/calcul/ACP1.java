@@ -48,7 +48,7 @@ public class ACP1 {
 
 	}
 	String line = new String();
-	line = proteins.size() + " 5";
+	line = proteins.size() + " 5\n";
 	for (int i = 0; i < proteins.size(); i++) {
 	    Protein protein = proteins.get(i);
 
