@@ -12,8 +12,7 @@ import javax.persistence.Persistence;
 
 import model.TableDeFait;
 
-public class ACP1 {
-
+public class ACP5 {
     private static EntityManagerFactory entityManagerFactory;
     private static EntityManager entityManager;
     private static int numOfCluster = 5;
@@ -29,8 +28,7 @@ public class ACP1 {
 	List<TableDeFait> tableDeFaits = (List<TableDeFait>) entityManager
 		.createQuery("SELECT t FROM TableDeFait t").getResultList();
 	for (TableDeFait tableDeFait : tableDeFaits) {
-	    proteins.add(new Protein(tableDeFait));
-
+	    proteins.add(new ProteinForACP5(tableDeFait));
 	}
 	Collections.sort(proteins);
 	String line = new String();
@@ -38,9 +36,7 @@ public class ACP1 {
 	for (int i = 0; i < proteins.size(); i++) {
 	    Protein protein = proteins.get(i);
 
-	    line += protein.getNumHelix() + " " + protein.getNumSheet() + " "
-		    + protein.getNumTurn() + " "
-		    + protein.getNumTransmembrane() + " "
+	    line += protein.getNumTransmembrane() + " "
 		    + protein.getNumIntermembrane() + "\n";
 
 	}

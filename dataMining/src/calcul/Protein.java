@@ -4,14 +4,14 @@ import model.TableDeFait;
 
 public class Protein implements Comparable {
 
-    private int typeProtein;
-    private int numHelix;
-    private int numSheet;
-    private int numTurn;
-    private int numTransmembrane;
-    private int numIntermembrane;
-    private int hydrophobicity;
-    private TableDeFait tableDeFait;
+    protected int typeProtein;
+    protected int numHelix;
+    protected int numSheet;
+    protected int numTurn;
+    protected int numTransmembrane;
+    protected int numIntermembrane;
+    protected int hydrophobicity;
+    protected TableDeFait tableDeFait;
 
     public Protein(TableDeFait tableDeFait) {
 	this.tableDeFait = tableDeFait;

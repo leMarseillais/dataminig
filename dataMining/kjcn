@@ -19,3 +19,9 @@ JFreeChart chart = ChartFactory.createAreaXYChart
                       xyDataset,          // Dataset
                       true                // Show legend
                      );
+                     
+ACP1 : hydrophibicité vs helix, sheet,turn, trans et intermembrane
+ACP2 : hydrophibicité vs trans et intermembrane
+ACP3 : hydrophibicité vs helix, sheet,turn
+ACP4 : helix vs trans et intermembrane
+ACP5 : sheet vs trans et intermembrane
