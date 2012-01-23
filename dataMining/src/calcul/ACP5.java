@@ -32,7 +32,7 @@ public class ACP5 {
 	}
 	Collections.sort(proteins);
 	String line = new String();
-	line = proteins.size() + " 5\n";
+	line = proteins.size() + " 2\n";
 	for (int i = 0; i < proteins.size(); i++) {
 	    Protein protein = proteins.get(i);
 
